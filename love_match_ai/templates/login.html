@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Login') }} · Love Match AI 💘{% endblock %}
+{% block content %}
+<div class="auth-wrap">
+  <div class="auth-card glass reveal">
+    <h2 class="auth-title">{{ _('Welcome back!') }} 💖</h2>
+    <p class="auth-sub">{{ _('Your matches missed you.') }}</p>
+    <form method="post" action="{{ url_for('login') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label class="field">
+        <span>{{ _('Username') }}</span>
+        <input type="text" name="username" required maxlength="20" autofocus>
+      </label>
+      <label class="field">
+        <span>{{ _('Password') }}</span>
+        <input type="password" name="password" required>
+      </label>
+      <button type="submit" class="btn btn-primary btn-block">{{ _('Login') }} 💘</button>
+    </form>
+    <p class="auth-alt">{{ _('No account yet?') }}
+      <a href="{{ url_for('register') }}">{{ _('Sign up') }}</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

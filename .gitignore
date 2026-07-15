@@ -1,0 +1,33 @@
+# Virtual environment (never commit — recreate from requirements.txt)
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database (created automatically on first run)
+*.db
+instance/
+
+# User-uploaded photos (created at runtime)
+love_match_ai/static/uploads/*
+!love_match_ai/static/uploads/.gitkeep
+
+# Compiled translation catalogs are fine to keep, but pot templates are not
+*.pot
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# The submission zip is a build artifact, not source
+*.zip
+
+# Server logs
+server_log.txt
+*.log

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ _('History') }} · Love Match AI 💘{% endblock %}
+{% block content %}
+<h1 class="page-title reveal">📜 {{ _('My match history') }}</h1>
+
+{% if matches %}
+<p class="page-sub reveal">{{ _('Every experiment in love, archived forever. (Or until you press delete.)') }}</p>
+<section class="history-list">
+  {% for m in matches %}
+  <div class="history-card glass reveal">
+    <div class="history-photos">
+      <img src="{{ url_for('static', filename=m.my_photo) }}" alt="{{ m.my_name }}" class="history-thumb">
+      <span class="history-heart">❤️</span>
+      {% if m.winner %}
+      <img src="{{ url_for('static', filename=m.winner.photo) }}" alt="{{ m.winner.name }}" class="history-thumb thumb-winner">
+      {% endif %}
+    </div>
+    <div class="history-body">
+      <div class="history-title-row">
+        <span class="history-title">{{ m.title }}</span>
+        <button type="button" class="rename-toggle" title="{{ _('Rename') }}">✏️</button>
+      </div>
+      <form method="post" action="{{ url_for('rename_match', match_id=m.id) }}" class="rename-form" hidden>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="text" name="title" maxlength="60" value="{{ m.title }}" class="rename-input">
+        <button type="submit" class="btn btn-small btn-primary">{{ _('Save') }}</button>
+      </form>
+      <div class="history-meta">
+        <span>🗓️ {{ m.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+        <span>👥 {{ m.candidates|length }} {{ _('candidates') }}</span>
+        {% if m.winner %}<span>🏆 {{ m.winner.name }} — <strong>{{ m.best_score|int }}%</strong></span>{% endif %}
+      </div>
+    </div>
+    <div class="history-actions">
+      <a href="{{ url_for('result', match_id=m.id) }}" class="btn btn-small btn-primary">{{ _('View') }} 👀</a>
+      <form method="post" action="{{ url_for('delete_match', match_id=m.id) }}" class="inline-form js-confirm"
+            data-confirm="{{ _('Delete this match? The AI will pretend it never happened.') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit" class="btn btn-small btn-danger">{{ _('Delete') }} 🗑️</button>
+      </form>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% else %}
+<div class="empty-state glass reveal">
+  <div class="empty-emoji">🕸️</div>
+  <p>{{ _('No matches yet. Your love story is an empty page!') }}</p>
+  <a href="{{ url_for('match') }}" class="btn btn-primary btn-big">💘 {{ _('Run your first match') }}</a>
+</div>
+{% endif %}
+{% endblock %}

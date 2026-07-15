@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}{{ _('New Match') }} · Love Match AI 💘{% endblock %}
+{% block content %}
+{% include "_overlay.html" %}
+
+<h1 class="page-title reveal">{{ _('Find your match') }} 💘</h1>
+<p class="page-sub reveal">{{ _('One clear face per photo — the AI insists!') }}</p>
+
+<form id="match-form" method="post" action="{{ url_for('analyze') }}" enctype="multipart/form-data">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+  <section class="you-section glass reveal">
+    <h2 class="section-title">📷 {{ _('Step 1 — Your photo') }}</h2>
+    <div class="you-row">
+      <label class="drop-zone" tabindex="0">
+        <input type="file" name="my_photo" accept="image/*" hidden required>
+        <span class="dz-inner">
+          <span class="dz-icon">💁</span>
+          <span class="dz-text">{{ _('Drop a photo or click to choose') }}</span>
+        </span>
+        <img class="dz-preview" alt="" hidden>
+      </label>
+      <label class="field field-grow">
+        <span>{{ _('Your name (optional)') }}</span>
+        <input type="text" name="my_name" maxlength="40" placeholder="{{ _('Me') }}">
+      </label>
+    </div>
+  </section>
+
+  <section class="cand-section reveal">
+    <h2 class="section-title">💕 {{ _('Step 2 — Your candidates') }} (1–{{ max_candidates }})</h2>
+    <div class="cand-grid" id="cand-grid">
+      {% for i in range(1, max_candidates + 1) %}
+      <div class="cand-slot glass {{ 'slot-hidden' if i > 1 }}" data-slot="{{ i }}">
+        <div class="cand-slot-head">
+          <span class="cand-slot-num">#{{ i }}</span>
+          {% if i > 1 %}<button type="button" class="slot-remove" title="{{ _('Remove') }}">✕</button>{% endif %}
+        </div>
+        <label class="drop-zone dz-small" tabindex="0">
+          <input type="file" name="candidate_photo_{{ i }}" accept="image/*" hidden>
+          <span class="dz-inner">
+            <span class="dz-icon">😍</span>
+            <span class="dz-text">{{ _('Add photo') }}</span>
+          </span>
+          <img class="dz-preview" alt="" hidden>
+        </label>
+        <label class="field">
+          <span>{{ _('Name (optional)') }}</span>
+          <input type="text" name="candidate_name_{{ i }}" maxlength="40"
+                 placeholder="{{ _('Candidate') }} {{ i }}">
+        </label>
+      </div>
+      {% endfor %}
+    </div>
+    <button type="button" id="add-candidate" class="btn btn-ghost">➕ {{ _('Add another candidate') }}</button>
+  </section>
+
+  <div class="submit-row reveal">
+    <button type="submit" class="btn btn-primary btn-big btn-pulse">💘 {{ _('Find My Match!') }}</button>
+  </div>
+</form>
+{% endblock %}

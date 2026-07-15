@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Results') }} · Love Match AI 💘{% endblock %}
+{% block content %}
+{% include "_overlay.html" %}
+
+{% set winner = candidates[0] %}
+<div id="result-root" data-new="{{ '1' if is_new else '0' }}">
+
+  <h1 class="page-title result-item">{{ _('The results are in!') }} 💌</h1>
+
+  <section class="verdict-hero result-item">
+    <div class="vs-card glass">
+      <div class="vs-you">
+        <img src="{{ url_for('static', filename=match.my_photo) }}" alt="{{ match.my_name }}" class="photo-circle">
+        <div class="vs-name">{{ match.my_name }}</div>
+      </div>
+      <div class="vs-heart" aria-hidden="true">💞</div>
+      <div class="vs-winner">
+        <div class="crown" aria-hidden="true">👑</div>
+        <img src="{{ url_for('static', filename=winner.obj.photo) }}" alt="{{ winner.obj.name }}"
+             class="photo-circle photo-winner" id="winner-photo">
+        <div class="vs-name">{{ winner.obj.name }}</div>
+      </div>
+    </div>
+    <div class="winner-banner glass">
+      <div class="winner-label">🏆 {{ _('Your best match') }}</div>
+      <div class="winner-score">
+        <span class="count-up" data-target="{{ winner.obj.score|int }}">0</span><span class="pct-sign">%</span>
+        <span class="winner-emoji">{{ band_emoji[winner.obj.band] }}</span>
+      </div>
+      <div class="score-bar big-bar"><div class="score-bar-fill" data-score="{{ winner.obj.score|int }}"></div></div>
+      <p class="winner-verdict">“{{ winner.verdict }}”</p>
+      {% if winner.reason %}<p class="winner-reason">🧠 {{ winner.reason }}</p>{% endif %}
+    </div>
+  </section>
+
+  <h2 class="section-title result-item">📊 {{ _('Full rankings') }}</h2>
+  <section class="ranking">
+    {% for c in candidates %}
+    <div class="rank-card glass result-item {{ 'rank-first' if loop.first }}">
+      <div class="rank-badge rank-{{ c.obj.rank }}">{{ c.obj.rank }}</div>
+      <img src="{{ url_for('static', filename=c.obj.photo) }}" alt="{{ c.obj.name }}" class="rank-photo">
+      <div class="rank-body">
+        <div class="rank-top">
+          <span class="rank-name">{{ c.obj.name }}</span>
+          <span class="rank-score">
+            <span class="count-up" data-target="{{ c.obj.score|int }}">0</span>%
+            {{ band_emoji[c.obj.band] }}
+          </span>
+        </div>
+        <div class="score-bar"><div class="score-bar-fill" data-score="{{ c.obj.score|int }}"></div></div>
+        <p class="rank-verdict">“{{ c.verdict }}”</p>
+        {% if c.reason %}<p class="rank-reason">🧠 {{ c.reason }}</p>{% endif %}
+        <details class="breakdown">
+          <summary>🔬 {{ _('AI analysis breakdown') }}</summary>
+          <div class="breakdown-grid">
+            {% for key, value in c.breakdown.items() %}
+            <div class="bd-row">
+              <span class="bd-name">{{ component_names[key] }}</span>
+              <div class="bd-bar"><div class="bd-fill" style="width: {{ value }}%"></div></div>
+              <span class="bd-val">{{ value }}%</span>
+            </div>
+            {% endfor %}
+          </div>
+        </details>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <section class="result-actions result-item">
+    <a href="{{ url_for('match') }}" class="btn btn-primary">💘 {{ _('New match') }}</a>
+    <a href="{{ url_for('history') }}" class="btn btn-ghost">📜 {{ _('My history') }}</a>
+    <form method="post" action="{{ url_for('delete_match', match_id=match.id) }}" class="inline-form js-confirm"
+          data-confirm="{{ _('Delete this match? The AI will pretend it never happened.') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <button type="submit" class="btn btn-danger">🗑️ {{ _('Delete') }}</button>
+    </form>
+  </section>
+  <p class="saved-note result-item">✅ {{ _('Saved to your history automatically.') }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Hall of Fame') }} · Love Match AI 💘{% endblock %}
+{% block content %}
+<h1 class="page-title reveal">🏆 {{ _('Hall of Fame') }}</h1>
+
+{% if top %}
+<p class="page-sub reveal">{{ _('The highest compatibility scores the AI has ever witnessed. Legendary.') }}</p>
+
+<section class="stats-row">
+  <div class="stat-tile glass reveal">
+    <div class="stat-value">{{ total_matches }}</div>
+    <div class="stat-label">{{ _('Matches run') }} 💘</div>
+  </div>
+  <div class="stat-tile glass reveal">
+    <div class="stat-value">{{ total_candidates }}</div>
+    <div class="stat-label">{{ _('Candidates analyzed') }} 👥</div>
+  </div>
+  <div class="stat-tile glass reveal">
+    <div class="stat-value">{{ avg_score }}%</div>
+    <div class="stat-label">{{ _('Average compatibility') }} 📊</div>
+  </div>
+  <div class="stat-tile glass reveal">
+    <div class="stat-value">{{ top[0].score|int }}%</div>
+    <div class="stat-label">{{ _('Best score ever') }} 🚀</div>
+  </div>
+</section>
+
+<section class="podium reveal">
+  {% set medals = ['🥇', '🥈', '🥉'] %}
+  {% set order = ([1, 0, 2] if top|length > 2 else ([1, 0] if top|length > 1 else [0])) %}
+  {% for idx in order %}
+    {% set c = top[idx] %}
+    <div class="podium-spot place-{{ idx + 1 }}">
+      <div class="podium-medal">{{ medals[idx] }}</div>
+      <img src="{{ url_for('static', filename=c.photo) }}" alt="{{ c.name }}" class="podium-photo">
+      <div class="podium-name">{{ c.name }}</div>
+      <div class="podium-score">{{ c.score|int }}%</div>
+      <a class="podium-link" href="{{ url_for('result', match_id=c.match_id) }}">{{ c.match.title }}</a>
+      <div class="podium-block glass"></div>
+    </div>
+  {% endfor %}
+</section>
+{% else %}
+<div class="empty-state glass reveal">
+  <div class="empty-emoji">🏜️</div>
+  <p>{{ _('The Hall of Fame is empty. No legends have been made… yet.') }}</p>
+  <a href="{{ url_for('match') }}" class="btn btn-primary btn-big">💘 {{ _('Make history') }}</a>
+</div>
+{% endif %}
+{% endblock %}

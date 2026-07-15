@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-heart" aria-hidden="true">💘</div>
+  <h1 class="hero-title">Love Match AI</h1>
+  <p class="hero-tagline">{{ _('Upload your photo, add your candidates, and let the AI decide your fate!') }}</p>
+  <p class="hero-disclaimer">⚠️ {{ _('Warning: results are for laughs only. Cupid is not liable for anything.') }}</p>
+  <div class="hero-cta">
+    <a href="{{ url_for('register') }}" class="btn btn-primary btn-big">{{ _('Start matching') }} 💘</a>
+    <a href="{{ url_for('login') }}" class="btn btn-ghost btn-big">{{ _('I have an account') }}</a>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="step-card glass reveal">
+    <div class="step-emoji">📷</div>
+    <h3>{{ _('1. Upload photos') }}</h3>
+    <p>{{ _('Your photo plus up to ten candidates. One clear face each!') }}</p>
+  </div>
+  <div class="step-card glass reveal">
+    <div class="step-emoji">🧠</div>
+    <h3>{{ _('2. The AI analyzes') }}</h3>
+    <p>{{ _('MediaPipe Face Mesh reads 478 facial landmarks — smiles, eyes, symmetry, vibes and more.') }}</p>
+  </div>
+  <div class="step-card glass reveal">
+    <div class="step-emoji">💖</div>
+    <h3>{{ _('3. Meet your match') }}</h3>
+    <p>{{ _('Everyone gets a compatibility score, a ranking, and a brutally honest verdict.') }}</p>
+  </div>
+</section>
+{% endblock %}

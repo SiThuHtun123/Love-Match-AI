@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ code }} · Love Match AI 💘{% endblock %}
+{% block content %}
+<div class="empty-state glass reveal">
+  <div class="empty-emoji">💔</div>
+  <h1 class="page-title">{{ code }}</h1>
+  <p>{{ message }}</p>
+  <a href="{{ url_for('index') }}" class="btn btn-primary btn-big">🏠 {{ _('Take me home') }}</a>
+</div>
+{% endblock %}

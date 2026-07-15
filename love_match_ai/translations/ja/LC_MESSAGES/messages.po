@@ -1,0 +1,398 @@
+# Japanese translations for Love Match AI.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the Love Match AI
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Love Match AI VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-07-15 17:05+0900\n"
+"PO-Revision-Date: 2026-07-15 12:31+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja\n"
+"Language-Team: ja <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app.py:65
+msgid "Please log in first — love waits for no one! 💘"
+msgstr "まずはログインしてください——愛は誰も待ってくれません！💘"
+
+#: app.py:136
+#, python-format
+msgid ""
+"%(who)s: I see %(count)d people in this photo! I'm an AI, not a "
+"matchmaker for a whole party 🎉 — one face per photo, please!"
+msgstr ""
+"%(who)s：この写真には%(count)d人写っています！私はAIであって、パーティー全員の仲人ではありません🎉 "
+"1枚につき1人の顔でお願いします！"
+
+#: app.py:142
+#, python-format
+msgid ""
+"%(who)s: Hmm, I can't find a clear face in this photo. Try a brighter, "
+"front-facing one! 📷"
+msgstr "%(who)s：うーん、この写真からはっきりした顔が見つかりません。明るい正面向きの写真を試してください！📷"
+
+#: app.py:173
+msgid "Username must be 3–20 characters."
+msgstr "ユーザー名は3〜20文字で入力してください。"
+
+#: app.py:175
+msgid "Password must be at least 6 characters."
+msgstr "パスワードは6文字以上で入力してください。"
+
+#: app.py:177
+msgid "Passwords do not match."
+msgstr "パスワードが一致しません。"
+
+#: app.py:179
+msgid "That username is already taken."
+msgstr "そのユーザー名はすでに使われています。"
+
+#: app.py:186
+#, python-format
+msgid "Welcome aboard, %(name)s! Time to find your match 💘"
+msgstr "ようこそ、%(name)sさん！さっそく運命の相手を探しましょう💘"
+
+#: app.py:201
+#, python-format
+msgid "Welcome back, %(name)s! 💖"
+msgstr "おかえりなさい、%(name)sさん！💖"
+
+#: app.py:203
+msgid "Wrong username or password. Even the AI can't match those."
+msgstr "ユーザー名またはパスワードが違います。これはAIでもマッチングできません。"
+
+#: app.py:211
+msgid "Logged out. Cupid will miss you! 👋"
+msgstr "ログアウトしました。キューピッドが寂しがっています！👋"
+
+#: app.py:237 templates/match.html:25
+msgid "Me"
+msgstr "わたし"
+
+#: app.py:239
+msgid "Please upload your own photo first! 📷"
+msgstr "まずはあなた自身の写真をアップロードしてください！📷"
+
+#: app.py:245
+msgid "Your photo doesn't look like a valid image file."
+msgstr "あなたの写真は有効な画像ファイルではないようです。"
+
+#: app.py:247
+msgid "Your photo"
+msgstr "あなたの写真"
+
+#: app.py:256
+#, python-format
+msgid "Candidate %(num)d"
+msgstr "候補者%(num)d"
+
+#: app.py:262
+#, python-format
+msgid "%(who)s: that file doesn't look like a valid image."
+msgstr "%(who)s：このファイルは有効な画像ではないようです。"
+
+#: app.py:268
+msgid "Add at least one candidate — the AI can't matchmake thin air! 💨"
+msgstr "候補者を最低1人追加してください——AIは空気とはマッチングできません！💨"
+
+#: app.py:354
+msgid "Match renamed! ✏️"
+msgstr "マッチ名を変更しました！✏️"
+
+#: app.py:367
+msgid "Match deleted. The AI has already forgotten them. 🗑️"
+msgstr "マッチを削除しました。AIはもう忘れました🗑️"
+
+#: app.py:406
+msgid "This page ghosted you. It's not here. 👻"
+msgstr "このページはあなたをゴースティングしました。ここにはありません👻"
+
+#: app.py:412
+msgid "The AI fainted from too much love. Try again!"
+msgstr "AIは愛が多すぎて気絶しました。もう一度お試しください！"
+
+#: app.py:417
+msgid "That photo is too large (max 8 MB per request). Try a smaller one!"
+msgstr "写真が大きすぎます（1回あたり最大8MB）。小さいものをお試しください！"
+
+#: app.py:423
+msgid "Your session expired — please try again."
+msgstr "セッションの有効期限が切れました。もう一度お試しください。"
+
+#: templates/_overlay.html:3
+msgid "Analyzing love…"
+msgstr "愛を分析中…"
+
+#: templates/base.html:18 templates/match.html:2
+msgid "New Match"
+msgstr "新しいマッチ"
+
+#: templates/base.html:19 templates/history.html:2
+msgid "History"
+msgstr "履歴"
+
+#: templates/base.html:20 templates/halloffame.html:2
+#: templates/halloffame.html:4
+msgid "Hall of Fame"
+msgstr "殿堂"
+
+#: templates/base.html:32
+msgid "Logout"
+msgstr "ログアウト"
+
+#: templates/base.html:34 templates/login.html:2 templates/login.html:18
+#: templates/register.html:25
+msgid "Login"
+msgstr "ログイン"
+
+#: templates/base.html:35 templates/login.html:21 templates/register.html:2
+#: templates/register.html:22
+msgid "Sign up"
+msgstr "新規登録"
+
+#: templates/base.html:55
+msgid ""
+"Scientific accuracy: zero. For entertainment only — real compatibility "
+"cannot be predicted from faces!"
+msgstr "科学的正確性：ゼロ。エンターテインメント専用です——本当の相性は顔からは予測できません！"
+
+#: templates/error.html:8
+msgid "Take me home"
+msgstr "ホームに戻る"
+
+#: templates/halloffame.html:7
+msgid "The highest compatibility scores the AI has ever witnessed. Legendary."
+msgstr "AIが今まで目撃した最高の相性スコア。まさに伝説。"
+
+#: templates/halloffame.html:12
+msgid "Matches run"
+msgstr "実行したマッチ"
+
+#: templates/halloffame.html:16
+msgid "Candidates analyzed"
+msgstr "分析した候補者"
+
+#: templates/halloffame.html:20
+msgid "Average compatibility"
+msgstr "平均相性"
+
+#: templates/halloffame.html:24
+msgid "Best score ever"
+msgstr "過去最高スコア"
+
+#: templates/halloffame.html:46
+msgid "The Hall of Fame is empty. No legends have been made… yet."
+msgstr "殿堂はまだ空っぽです。伝説はまだ生まれていません…今のところ。"
+
+#: templates/halloffame.html:47
+msgid "Make history"
+msgstr "歴史を作る"
+
+#: templates/history.html:4
+msgid "My match history"
+msgstr "マイマッチ履歴"
+
+#: templates/history.html:7
+msgid "Every experiment in love, archived forever. (Or until you press delete.)"
+msgstr "愛の実験のすべてを永久保存。（削除ボタンを押すまでは。）"
+
+#: templates/history.html:21
+msgid "Rename"
+msgstr "名前を変更"
+
+#: templates/history.html:26
+msgid "Save"
+msgstr "保存"
+
+#: templates/history.html:30
+msgid "candidates"
+msgstr "人の候補者"
+
+#: templates/history.html:35
+msgid "View"
+msgstr "見る"
+
+#: templates/history.html:37 templates/result.html:75
+msgid "Delete this match? The AI will pretend it never happened."
+msgstr "このマッチを削除しますか？AIは何もなかったことにします。"
+
+#: templates/history.html:39 templates/result.html:77
+msgid "Delete"
+msgstr "削除"
+
+#: templates/history.html:48
+msgid "No matches yet. Your love story is an empty page!"
+msgstr "まだマッチがありません。あなたのラブストーリーは白紙のページです！"
+
+#: templates/history.html:49
+msgid "Run your first match"
+msgstr "初めてのマッチを実行"
+
+#: templates/index.html:6
+msgid "Upload your photo, add your candidates, and let the AI decide your fate!"
+msgstr "あなたの写真をアップして、候補者を追加。あとはAIに運命を決めてもらいましょう！"
+
+#: templates/index.html:7
+msgid "Warning: results are for laughs only. Cupid is not liable for anything."
+msgstr "警告：結果は完全にネタです。キューピッドは一切の責任を負いません。"
+
+#: templates/index.html:9
+msgid "Start matching"
+msgstr "マッチングを始める"
+
+#: templates/index.html:10
+msgid "I have an account"
+msgstr "アカウントを持っています"
+
+#: templates/index.html:17
+msgid "1. Upload photos"
+msgstr "1. 写真をアップロード"
+
+#: templates/index.html:18
+msgid "Your photo plus up to ten candidates. One clear face each!"
+msgstr "あなたの写真と最大10人の候補者。1枚につき、はっきりした顔1つ！"
+
+#: templates/index.html:22
+msgid "2. The AI analyzes"
+msgstr "2. AIが分析"
+
+#: templates/index.html:23
+msgid ""
+"MediaPipe Face Mesh reads 478 facial landmarks — smiles, eyes, symmetry, "
+"vibes and more."
+msgstr "MediaPipe Face Meshが478個の顔ランドマークを読み取ります——笑顔、目、対称性、雰囲気など。"
+
+#: templates/index.html:27
+msgid "3. Meet your match"
+msgstr "3. 運命の相手と出会う"
+
+#: templates/index.html:28
+msgid ""
+"Everyone gets a compatibility score, a ranking, and a brutally honest "
+"verdict."
+msgstr "全員に相性スコア、ランキング、そして容赦なく正直な判定が届きます。"
+
+#: templates/login.html:6
+msgid "Welcome back!"
+msgstr "おかえりなさい！"
+
+#: templates/login.html:7
+msgid "Your matches missed you."
+msgstr "あなたのマッチたちが待っていました。"
+
+#: templates/login.html:11 templates/register.html:11
+msgid "Username"
+msgstr "ユーザー名"
+
+#: templates/login.html:15 templates/register.html:15
+msgid "Password"
+msgstr "パスワード"
+
+#: templates/login.html:20
+msgid "No account yet?"
+msgstr "アカウントをお持ちでない方は"
+
+#: templates/match.html:6
+msgid "Find your match"
+msgstr "運命の相手を探す"
+
+#: templates/match.html:7
+msgid "One clear face per photo — the AI insists!"
+msgstr "1枚につき、はっきりした顔1つ——AIからの強いお願いです！"
+
+#: templates/match.html:13
+msgid "Step 1 — Your photo"
+msgstr "ステップ1 — あなたの写真"
+
+#: templates/match.html:19
+msgid "Drop a photo or click to choose"
+msgstr "写真をドロップ、またはクリックして選択"
+
+#: templates/match.html:24
+msgid "Your name (optional)"
+msgstr "あなたの名前（任意）"
+
+#: templates/match.html:31
+msgid "Step 2 — Your candidates"
+msgstr "ステップ2 — 候補者"
+
+#: templates/match.html:37
+msgid "Remove"
+msgstr "削除"
+
+#: templates/match.html:43
+msgid "Add photo"
+msgstr "写真を追加"
+
+#: templates/match.html:48
+msgid "Name (optional)"
+msgstr "名前（任意）"
+
+#: templates/match.html:50
+msgid "Candidate"
+msgstr "候補者"
+
+#: templates/match.html:55
+msgid "Add another candidate"
+msgstr "候補者を追加"
+
+#: templates/match.html:59
+msgid "Find My Match!"
+msgstr "マッチを探す！"
+
+#: templates/register.html:6
+msgid "Create your account"
+msgstr "アカウントを作成"
+
+#: templates/register.html:7
+msgid "Destiny is one form away."
+msgstr "運命まで、あとフォーム1つ。"
+
+#: templates/register.html:19
+msgid "Confirm password"
+msgstr "パスワード（確認）"
+
+#: templates/register.html:24
+msgid "Already have an account?"
+msgstr "すでにアカウントをお持ちの方は"
+
+#: templates/result.html:2
+msgid "Results"
+msgstr "結果"
+
+#: templates/result.html:9
+msgid "The results are in!"
+msgstr "結果が出ました！"
+
+#: templates/result.html:26
+msgid "Your best match"
+msgstr "あなたのベストマッチ"
+
+#: templates/result.html:37
+msgid "Full rankings"
+msgstr "全ランキング"
+
+#: templates/result.html:55
+msgid "AI analysis breakdown"
+msgstr "AI分析の内訳"
+
+#: templates/result.html:72
+msgid "New match"
+msgstr "新しいマッチ"
+
+#: templates/result.html:73
+msgid "My history"
+msgstr "マイ履歴"
+
+#: templates/result.html:80
+msgid "Saved to your history automatically."
+msgstr "履歴に自動保存されました。"
+
