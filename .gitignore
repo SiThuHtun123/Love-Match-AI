@@ -24,6 +24,7 @@ love_match_ai/static/uploads/*
 Thumbs.db
 .vscode/
 .idea/
+.claude/
 
 # The submission zip is a build artifact, not source
 *.zip
